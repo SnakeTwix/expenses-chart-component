@@ -1,4 +1,5 @@
 import styles from '../styles/Card.module.scss';
+import Image from 'next/image';
 
 import type { Day } from '../interfaces/Day.interface';
 import classNames from 'classnames';
@@ -12,38 +13,53 @@ const Card = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2>Spending - Last 7 days</h2>
-      <div className={styles.chart}>
-        {data.map((entry) => {
-          const classes = classNames({
-            [styles.column]: true,
-            [styles.most]: entry.amount === maxAmount,
-          });
-          const height = (MAX_HEIGHT / maxAmount) * entry.amount;
-          return (
-            <div key={entry.day} className='column_wrapper'>
-              <div className={classes} style={{ height: height + 'rem' }}></div>
-              <div className={`${styles.dayDisplay} text_brown`}>
-                {entry.day}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className={styles.stats}>
-        <div className='total'>
-          <span className='text_brown'>Total this month</span>
-          <h1>$478.33</h1>
+      <div className={styles.balance}>
+        <div className={styles.info}>
+          <p className={styles['info__text']}>My balance</p>
+          <p className={`${styles['info__number']} text_bold`}>$921.48</p>
         </div>
-        <div className='percent'>
-          <div
-            className={`text_bold`}
-            style={{
-              textAlign: 'end',
-            }}>
-            +2.4%
+        <Image src={'/logo.svg'} width='72' height='48' />
+      </div>
+      <div className={styles.cardWrapper}>
+        <div className='card'>
+          <p className={`${styles.spending} text_bold`}>
+            Spending - Last 7 days
+          </p>
+          <div className={styles.chart}>
+            {data.map((entry) => {
+              const classes = classNames({
+                [styles.column]: true,
+                [styles.most]: entry.amount === maxAmount,
+              });
+              const height = (MAX_HEIGHT / maxAmount) * entry.amount;
+              return (
+                <div key={entry.day} className='column_wrapper'>
+                  <div
+                    className={classes}
+                    style={{ height: height + 'rem' }}></div>
+                  <div className={`${styles.dayDisplay} text_brown`}>
+                    {entry.day}
+                  </div>
+                </div>
+              );
+            })}
           </div>
-          <div className='text_brown'>from last month</div>
+          <div className={styles.stats}>
+            <div className='total'>
+              <span className='text_brown'>Total this month</span>
+              <h1>$478.33</h1>
+            </div>
+            <div className='percent'>
+              <div
+                className={`text_bold`}
+                style={{
+                  textAlign: 'end',
+                }}>
+                +2.4%
+              </div>
+              <div className='text_brown'>from last month</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

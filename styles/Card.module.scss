@@ -1,14 +1,58 @@
 @import "./colors.scss";
 
-.wrapper {
-    background-color: $pale-orange;
-    padding: 2rem;
+@media screen and (max-width: 400px) {
+   .wrapper {
+     width: 90%;
+   }
+}
+
+@media screen and (min-width: 400px) {
+    .wrapper {
+        width: 20em;
+    }
+}
+
+.balance {
+    display: flex;
+    justify-content: space-between;
+    background-color: $soft-red;
+    height: 5em;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    color: $pale-orange;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.info__text {
+    font-size: 0.85rem;
+}
+
+.info__number {
+    font-size: 1.5rem;
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    background-color: $pale-orange;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.spending {
+    font-size: 1.5rem;
 }
 
 .chart {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: flex-end;
     border-bottom: $cream 4px solid;
     border-radius: 1px;
