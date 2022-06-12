@@ -37,7 +37,7 @@ const Card = () => {
           <p className={styles['info__text']}>My balance</p>
           <p className={`${styles['info__number']} text_bold`}>$921.48</p>
         </div>
-        <Image src={'/logo.svg'} width='72' height='48' />
+        <Image src={'/logo.svg'} width='72' height='48' alt='Logo' />
       </div>
       <div className={styles.cardWrapper}>
         <div className='card'>

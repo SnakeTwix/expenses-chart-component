@@ -70,7 +70,9 @@
     cursor: pointer;
     transition: background-color 0.1s ease-out;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
         background-color: $transparent-soft-red;
         
         .hoverAmount {
@@ -82,7 +84,10 @@
 .column.most {
     background-color: $cyan;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active
+     {
         background-color: $transparent-cyan;
     }
 }
