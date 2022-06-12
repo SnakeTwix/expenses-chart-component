@@ -1,0 +1,47 @@
+@import "./colors.scss";
+
+.wrapper {
+    background-color: $pale-orange;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.chart {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    border-bottom: $cream 4px solid;
+    border-radius: 1px;
+    margin: 2.5rem 0;
+
+}
+
+.column {
+    width: 2em;
+    border-radius: 0.25em;
+    background-color: $soft-red;
+    cursor: pointer;
+    transition: opacity 0.1s ease-out;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+
+
+.column.most {
+    background-color: $cyan;
+}
+
+.dayDisplay {
+    text-align: center;
+    margin: 0.75rem 0;
+    font-size: 0.85rem;
+}
+
+.stats {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}

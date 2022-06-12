@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
-
+@import "./colors.scss";
 
 * {
   padding: 0;
@@ -10,9 +10,22 @@
 body {
   font-size: 1.125rem; // 16px -> 18px
   font-family: 'DM Sans', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $cream;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.text_brown {
+  color: $medium-brown;
+}
+
+.text_bold {
+  font-weight: bold;
 }
