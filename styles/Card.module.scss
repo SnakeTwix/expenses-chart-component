@@ -61,21 +61,44 @@
 }
 
 .column {
+    display: flex;
+    justify-content: center;
+    position: relative;
     width: 2em;
     border-radius: 0.25em;
     background-color: $soft-red;
     cursor: pointer;
-    transition: opacity 0.1s ease-out;
+    transition: background-color 0.1s ease-out;
 
     &:hover {
-        opacity: 0.5;
+        background-color: $transparent-soft-red;
+        
+        .hoverAmount {
+            opacity: 1;
+        }
     }
 }
 
-
-
 .column.most {
     background-color: $cyan;
+
+    &:hover {
+        background-color: $transparent-cyan;
+    }
+}
+
+.hoverAmount {
+    position: absolute;
+    opacity: 0;
+    background-color: $dark-brown;
+    color: $pale-orange;
+    top: -2.5rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    transition: opacity ease-in 0.1s;
+    z-index: 1;
 }
 
 .dayDisplay {

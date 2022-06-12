@@ -3,11 +3,30 @@ import Image from 'next/image';
 
 import type { Day } from '../interfaces/Day.interface';
 import classNames from 'classnames';
-const data: Day[] = require('../mock/data.json');
+import { useEffect, useState } from 'react';
 
 const MAX_HEIGHT = 10;
 
 const Card = () => {
+  const [data, setData] = useState<Day[] | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/data')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setData(null);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (!data) return <div>Something went wrong...</div>;
+
   const amountsSpent = data.map((entry) => entry.amount);
   const maxAmount = Math.max(...amountsSpent);
 
@@ -34,9 +53,9 @@ const Card = () => {
               const height = (MAX_HEIGHT / maxAmount) * entry.amount;
               return (
                 <div key={entry.day} className='column_wrapper'>
-                  <div
-                    className={classes}
-                    style={{ height: height + 'rem' }}></div>
+                  <div className={classes} style={{ height: height + 'rem' }}>
+                    <div className={styles.hoverAmount}>${entry.amount}</div>
+                  </div>
                   <div className={`${styles.dayDisplay} text_brown`}>
                     {entry.day}
                   </div>
